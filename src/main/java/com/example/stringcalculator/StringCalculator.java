@@ -2,10 +2,15 @@ package com.example.stringcalculator;
 
 public class StringCalculator {
 
+    public int add(String numbers) {
 
-    public int add(String s) {
 
-        return 0;
+        if (numbers.equals("")) {
+            return 0;
+        } else {
+
+            return Integer.parseInt(numbers);
+        }
 
     }
 }

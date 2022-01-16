@@ -65,5 +65,10 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    void numbersAbove1000ShouldBeIgnored() {
+        assertThat(stringCalculator.add("1001+1002")).isEqualTo(3);
+    }
+
 
 }

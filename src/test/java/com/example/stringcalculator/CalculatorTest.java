@@ -3,6 +3,7 @@ package com.example.stringcalculator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculatorTest {
@@ -40,6 +41,13 @@ public class CalculatorTest {
         assertThat(stringCalculator.add("5,5,5")).isEqualTo(15);
 
 
+    }
+
+    @Test
+    void addNumbersWithSpecialCharacters() {
+
+        int result = stringCalculator.add("1\n2,3");
+        assertThat(result).isEqualTo(6);
     }
 
 

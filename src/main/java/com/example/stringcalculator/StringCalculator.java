@@ -7,7 +7,7 @@ public class StringCalculator {
 
 
     public int addMultipleNumbers(String numbers) {
-        Stream<String> multipleNumbers = Arrays.stream(numbers.split(","));
+        Stream<String> multipleNumbers = Arrays.stream(numbers.split(",|\n"));
         return multipleNumbers.mapToInt(Integer::parseInt).sum();
 
 
@@ -21,6 +21,8 @@ public class StringCalculator {
         return addMultipleNumbers(numbers);
 
     }
+
+
 }
 
 

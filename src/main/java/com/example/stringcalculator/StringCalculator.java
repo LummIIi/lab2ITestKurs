@@ -7,10 +7,10 @@ public class StringCalculator {
 
         if (numbers.equals("")) {
             return 0;
-        } else {
+        } else if (numbers.contains(",")) {
+            return Integer.parseInt(numbers.substring(0, 1)) + Integer.parseInt(numbers.substring(2, 3));
+        } else
 
             return Integer.parseInt(numbers);
-        }
-
     }
 }

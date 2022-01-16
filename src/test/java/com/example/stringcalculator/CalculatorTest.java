@@ -23,4 +23,15 @@ public class CalculatorTest {
 
 
     }
+
+    @Test
+    void addTwoNumbersShouldReturnThree() {
+        int result = stringCalculator.add("1,2");
+
+        assertThat(result).isEqualTo(3);
+
+
+    }
+
+
 }

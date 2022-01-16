@@ -1,10 +1,11 @@
 package com.example.stringcalculator;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.as;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 
 public class CalculatorTest {
     StringCalculator stringCalculator = new StringCalculator();
@@ -48,6 +49,20 @@ public class CalculatorTest {
 
         int result = stringCalculator.add("1\n2,3");
         assertThat(result).isEqualTo(6);
+    }
+
+    @Test
+    void addNumbersAndDiscardDelimeter() {
+
+        assertThat(stringCalculator.add("//;\n1;2")).isEqualTo(3);
+
+    }
+
+    @Test
+    void negativeNumbersAreNotAllowed() {
+
+        assertThatThrownBy(() -> stringCalculator.add("-5")).hasMessageContaining("Negatives are not allowed ");
+
     }
 
 

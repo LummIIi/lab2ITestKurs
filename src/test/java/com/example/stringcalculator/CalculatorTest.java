@@ -1,5 +1,6 @@
 package com.example.stringcalculator;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +30,14 @@ public class CalculatorTest {
         int result = stringCalculator.add("1,2");
 
         assertThat(result).isEqualTo(3);
+
+
+    }
+
+    @Test
+    void addAnyNumbersAndGetTheSum() {
+
+        assertThat(stringCalculator.add("5,5,5")).isEqualTo(15);
 
 
     }

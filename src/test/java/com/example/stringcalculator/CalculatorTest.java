@@ -67,7 +67,12 @@ public class CalculatorTest {
 
     @Test
     void numbersAbove1000ShouldBeIgnored() {
-        assertThat(stringCalculator.add("1001+1002")).isEqualTo(3);
+        assertThat(stringCalculator.add("2+1001")).isEqualTo(3);
+    }
+
+    @Test
+    void numberWithMultipelDelimitersShouldBeIgnored() {
+        assertThat(stringCalculator.add("//[*][%]\\n1*2%3")).isEqualTo(5);
     }
 
 

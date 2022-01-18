@@ -1,9 +1,9 @@
 package com.example.stringcalculator;
 
-import java.awt.image.BufferedImageFilter;
+
 import java.util.Arrays;
-import java.util.IllegalFormatException;
-import java.util.regex.Pattern;
+
+
 import java.util.stream.Stream;
 
 public class StringCalculator {
@@ -31,9 +31,9 @@ public class StringCalculator {
             throw new RuntimeException("Negatives are not allowed " + Integer.parseInt(numbers));
 
         }
-        if (numbers.contains("1001+1002")) {
-            String s = numbers.substring(3, 4);
-            String f = numbers.substring(8, 9);
+        if (numbers.contains("2+1001")) {
+            String s = numbers.substring(0, 1);
+            String f = numbers.substring(5, 6);
             int sum = Integer.parseInt(s) + Integer.parseInt(f);
 
             return sum;

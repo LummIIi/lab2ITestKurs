@@ -75,7 +75,10 @@ public class CalculatorTest {
         assertThat(stringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
     }
 
-
+    @Test
+    void allowMultipleDelimiters() {
+        assertThat(stringCalculator.add("//[*][%]\n1*2%3")).isEqualTo(6);
+    }
 
 
 }

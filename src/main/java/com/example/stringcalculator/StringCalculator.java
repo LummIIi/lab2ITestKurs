@@ -1,7 +1,9 @@
 package com.example.stringcalculator;
 
 
-import java.io.Serializable;
+import java.util.WeakHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -24,13 +26,30 @@ public class StringCalculator {
 
         if (numbers.startsWith("//[")) {
             int sum = 0;
-            delimeter = "\\Q" + numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf("]")) + "\\E|\n";
+            Pattern pattern = Pattern.compile("\\[.*?]");
+            Matcher matcher = pattern.matcher(numbers);
+            StringBuilder stringBuilder = new StringBuilder();
+            while (matcher.find()) {
+                stringBuilder.append("\\Q").append(matcher.group(), 1, matcher.group().length() - 1).append("\\E|");
+            }
+            stringBuilder.append("\n");
+
+            delimeter = stringBuilder.toString();
+
             String[] stringArray = numbers.split(delimeter);
+
+
             for (int i = 2; i < stringArray.length; i++) {
-                sum += Integer.parseInt(stringArray[i]);
+
+                try {
+                    sum += Integer.parseInt(stringArray[i]);
+                } catch (NumberFormatException ignore) {
+
+                }
 
 
             }
+
             return sum;
 
         } else if (numbers.startsWith("//")) {

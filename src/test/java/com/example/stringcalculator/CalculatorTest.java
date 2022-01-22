@@ -72,8 +72,10 @@ public class CalculatorTest {
 
     @Test
     void numberWithMultipelDelimitersShouldBeIgnored() {
-        assertThat(stringCalculator.add("//[*][%]\\n1*2%3")).isEqualTo(5);
+        assertThat(stringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
     }
+
+
 
 
 }

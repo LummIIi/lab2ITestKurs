@@ -39,6 +39,13 @@ public class EmployeeTest {
         assertThat(result).isEqualTo("Stina");
     }
 
+    @Test
+    void testIfGetIdReturnsToString(){
+        Employee employee = new Employee("Stina", 300);
+        var result = employee.toString();
+        assertThat(result).isEqualTo("Employee [id=" + employee.getId() + ", salary=" + employee.getSalary() + "]");
+    }
+
 
 }
 

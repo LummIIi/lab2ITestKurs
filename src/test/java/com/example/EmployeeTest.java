@@ -32,6 +32,13 @@ public class EmployeeTest {
         assertThat(result).isEqualTo(true);
     }
 
+    @Test
+    void testifSGetIdForEmployeeName(){
+        Employee employee = new Employee("Stina", 100);
+        var result = employee.getId();
+        assertThat(result).isEqualTo("Stina");
+    }
+
 
 }
 

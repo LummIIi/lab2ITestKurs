@@ -25,6 +25,12 @@ public class EmployeeTest {
         var result = employee.getId();
         assertThat(result).isEqualTo("Stina");
     }
+    @Test
+    void testIfEmployeeReturnsIfAIdIsPaid(){
+        employee.setPaid(true);
+        var result = employee.isPaid();
+        assertThat(result).isEqualTo(true);
+    }
 
 
 }

@@ -19,5 +19,13 @@ public class EmployeeTest {
     }
 
 
+    @Test
+    void testIfEmplyeeReturnsCorrectName(){
+        employee.setId("Stina");
+        var result = employee.getId();
+        assertThat(result).isEqualTo("Stina");
+    }
+
+
 }
 

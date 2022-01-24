@@ -2,17 +2,15 @@ import com.example.BankService;
 import com.example.Employee;
 import com.example.EmployeeManager;
 import com.example.EmployeeRepository;
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 
@@ -42,18 +40,17 @@ public class EmployeeManagerTest {
 
 
 
-
-
-
-
-
-
     }
 
+    @Test
+    @DisplayName("Employee should not recive payment")
+    void payEmployeShouldThrowRuntimeException(){
+        doThrow(new RuntimeException()).when(bankService).pay(anyString(), anyDouble());
 
+        employeeManager.payEmployees();
 
-
-
+     assertThat(employeeRepository.findAll().get(0).isPaid()).isFalse();
+    }
 
 
 
